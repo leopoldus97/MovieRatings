@@ -9,10 +9,10 @@ namespace MovieRatings.Core.DomainService
     {
         int GetReviewsByReviewer(int reviewer);
         double AverageRatingByReviewer(int reviewer);
-        int GetCountOfGrades(int reviewer, int grade);
+        int GetCountOfGradesByReviewer(int reviewer, int grade);
         int GetCountOfMovieReviews(int movie);
         double AverageRatingOnMovie(int movie);
-        int GetMovieReviewsByGrade(int movie, int grade);
+        int GetCountOfMovieByGrade(int movie, int grade);
         int GetTopGradedMovies();
         int GetTopReviewer();
         List<MovieRating> GetTopMovies(int number);

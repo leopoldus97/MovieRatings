@@ -1,9 +1,9 @@
-﻿using MovieRatings.Core.DomainService;
-using MovieRatings.Core.Entity;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
+using System.Collections.Generic;
+using MovieRatings.Core.Entity;
+using MovieRatings.Core.DomainService;
+
 
 namespace MovieRatings.Infrastructure.Data
 {
@@ -18,27 +18,27 @@ namespace MovieRatings.Infrastructure.Data
 
         public double AverageRatingByReviewer(int reviewer)
         {
-            throw new NotImplementedException();
+            return movieRatings.Where(mr => mr.Reviewer == reviewer).Select(mr => mr.Grade).DefaultIfEmpty(0).Average();
         }
 
         public double AverageRatingOnMovie(int movie)
         {
-            throw new NotImplementedException();
+            return movieRatings.Where(mr => mr.Movie == movie).Select(mr => mr.Grade).DefaultIfEmpty(0).Average();
         }
 
-        public int GetCountOfGrades(int reviewer, int grade)
+        public int GetCountOfGradesByReviewer(int reviewer, int grade)
         {
-            throw new NotImplementedException();
+            return movieRatings.Where(mr => mr.Reviewer == reviewer).Where(mr => mr.Grade == grade).Count();
         }
 
         public int GetCountOfMovieReviews(int movie)
         {
-            throw new NotImplementedException();
+            return movieRatings.Where(mr => mr.Movie == movie).Count();
         }
 
-        public int GetMovieReviewsByGrade(int movie, int grade)
+        public int GetCountOfMovieByGrade(int movie, int grade)
         {
-            throw new NotImplementedException();
+            return movieRatings.Where(mr => mr.Movie == movie).Where(mr => mr.Grade == grade).Count();
         }
 
         public List<MovieRating> GetMoviesByReviewer(int reviewer)

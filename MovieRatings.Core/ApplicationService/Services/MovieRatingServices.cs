@@ -1,8 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
-using System.Text;
-using MovieRatings.Core.DomainService;
 using MovieRatings.Core.Entity;
+using MovieRatings.Core.DomainService;
 
 namespace MovieRatings.Core.ApplicationService.Services
 {
@@ -15,27 +15,35 @@ namespace MovieRatings.Core.ApplicationService.Services
         }
         public double AverageRatingByReviewer(int reviewer)
         {
-            throw new NotImplementedException();
+            return movieRatingRepository.AverageRatingByReviewer(reviewer);
         }
 
         public double AverageRatingOnMovie(int movie)
         {
-            throw new NotImplementedException();
+            return movieRatingRepository.AverageRatingOnMovie(movie);
         }
 
-        public int GetCountOfGrades(int reviewer, int grade)
+        public int GetCountOfGradesByReviewer(int reviewer, int grade)
         {
-            throw new NotImplementedException();
+            if (!(grade > 0 && grade < 6))
+            {
+                throw new InvalidDataException("The grade has to be between 1-5");
+            }
+            return movieRatingRepository.GetCountOfGradesByReviewer(reviewer, grade);
         }
 
         public int GetCountOfMovieReviews(int movie)
         {
-            throw new NotImplementedException();
+            return movieRatingRepository.GetCountOfMovieReviews(movie);
         }
 
-        public int GetMovieReviewsByGrade(int movie, int grade)
+        public int GetCountOfMovieByGrade(int movie, int grade)
         {
-            throw new NotImplementedException();
+            if (!(grade > 0 && grade < 6))
+            {
+                throw new InvalidDataException("The grade has to be between 1-5");
+            }
+            return movieRatingRepository.GetCountOfMovieByGrade(movie, grade);
         }
 
         public List<MovieRating> GetMoviesByReviewer(int reviewer)

@@ -22,7 +22,7 @@ namespace MovieRatings.Infrastructure.Data
             throw new NotImplementedException();
         }
 
-        public int GetCountOfGrades(int reviewer, int grade)
+        public int GetCountOfGradesByReviewer(int reviewer, int grade)
         {
             throw new NotImplementedException();
         }
@@ -32,7 +32,7 @@ namespace MovieRatings.Infrastructure.Data
             throw new NotImplementedException();
         }
 
-        public int GetMovieReviewsByGrade(int movie, int grade)
+        public int GetCountOfMovieByGrade(int movie, int grade)
         {
             throw new NotImplementedException();
         }
