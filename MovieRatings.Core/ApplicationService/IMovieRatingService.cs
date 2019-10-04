@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MovieRatings.Core.ApplicationService
 {
-    public interface IMovieRatingServices
+    public interface IMovieRatingService
     {
         int GetReviewsByReviewer(int reviewer);
         double AverageRatingByReviewer(int reviewer);

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using MovieRatings.Core.Entity;
 using MovieRatings.Core.DomainService;
 
-
 namespace MovieRatings.Infrastructure.Data
 {
     public class FakeMovieRatingRepository : IMovieRatingRepository
