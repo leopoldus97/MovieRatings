@@ -1,71 +1,97 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
-using System.Text;
-using MovieRatings.Core.DomainService;
 using MovieRatings.Core.Entity;
+using MovieRatings.Core.DomainService;
 
 namespace MovieRatings.Core.ApplicationService.Services
 {
     public class MovieRatingServices : IMovieRatingServices
     {
-        private readonly IMovieRatingRepository movieRatingRepository;
+        private readonly IMovieRatingRepository _movieRatingRepository;
+
         public MovieRatingServices(IMovieRatingRepository movieRatingRepository)
         {
-            this.movieRatingRepository = movieRatingRepository;
-        }
-        public double AverageRatingByReviewer(int reviewer)
-        {
-            throw new NotImplementedException();
-        }
-
-        public double AverageRatingOnMovie(int movie)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetCountOfGrades(int reviewer, int grade)
-        {
-            throw new NotImplementedException();
+            _movieRatingRepository = movieRatingRepository;
         }
 
         public int GetCountOfMovieReviews(int movie)
         {
-            throw new NotImplementedException();
-        }
-
-        public int GetMovieReviewsByGrade(int movie, int grade)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<MovieRating> GetMoviesByReviewer(int reviewer)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<MovieRating> GetReviewersByMovie(int movie)
-        {
-            throw new NotImplementedException();
+            if (movie < 1)
+            {
+                throw new ArgumentException("The movie cannot be a negative number");
+            }
+            return _movieRatingRepository.GetCountOfMovieReviews(movie);
         }
 
         public int GetReviewsByReviewer(int reviewer)
         {
-            return movieRatingRepository.GetReviewsByReviewer(reviewer);
+            if (reviewer < 1)
+            {
+                throw new ArgumentException("The reviewer cannot be a negative number");
+            }
+            return _movieRatingRepository.GetReviewsByReviewer(reviewer);
         }
 
-        public int GetTopGradedMovies()
+        public int GetCountOfMovieByGrade(int movie, int grade)
         {
-            throw new NotImplementedException();
+            if (!(grade > 0 && grade < 6))
+            {
+                throw new ArgumentException("The grade has to be between 1-5");
+            }
+            return _movieRatingRepository.GetCountOfMovieByGrade(movie, grade);
         }
 
-        public List<MovieRating> GetTopMovies(int number)
+        public int GetCountOfGradesByReviewer(int reviewer, int grade)
         {
-            throw new NotImplementedException();
+            if (!(grade > 0 && grade < 6))
+            {
+                throw new ArgumentException("The grade has to be between 1-5");
+            }
+            return _movieRatingRepository.GetCountOfGradesByReviewer(reviewer, grade);
         }
 
-        public int GetTopReviewer()
+        public double AverageRatingByReviewer(int reviewer)
         {
-            throw new NotImplementedException();
+            return _movieRatingRepository.AverageRatingByReviewer(reviewer);
+        }
+
+        public double AverageRatingOnMovie(int movie)
+        {
+            return _movieRatingRepository.AverageRatingOnMovie(movie);
+        }
+
+        public List<int> GetTopGradedMovies()
+        {
+            return _movieRatingRepository.GetTopGradedMovies().ToList();
+        }
+
+        public List<int> GetTopReviewers()
+        {
+            return _movieRatingRepository.GetTopReviewers().ToList();
+        }
+
+        public List<int> GetTopMovies(int number)
+        {
+            return _movieRatingRepository.GetTopMovies(number).ToList();
+        }
+
+        public List<MovieRating> GetMoviesByReviewer(int reviewer)
+        {
+            if (reviewer < 1)
+            {
+                throw new ArgumentException("The reviewer cannot be a negative number");
+            }
+            return _movieRatingRepository.GetMoviesByReviewer(reviewer).ToList();
+        }
+
+        public List<MovieRating> GetReviewersByMovie(int movie)
+        {
+            if (movie < 1)
+            {
+                throw new ArgumentException("The movie cannot be a negative number");
+            }
+            return _movieRatingRepository.GetReviewersByMovie(movie).ToList();
         }
     }
 }

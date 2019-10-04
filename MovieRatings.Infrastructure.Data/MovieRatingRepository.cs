@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using MovieRatings.Core.DomainService;
 using MovieRatings.Core.Entity;
-using Newtonsoft.Json;
+using MovieRatings.Core.DomainService;
 
 namespace MovieRatings.Infrastructure.Data
 {
@@ -12,6 +10,32 @@ namespace MovieRatings.Infrastructure.Data
         //const string filePath = @"..\..\..\..\ratings.json";
         //JsonSerializer js = new JsonSerializer();
         //(MovieRating[]) js.Deserialize(sr, typeof(MovieRating[]));
+
+        public void Add(MovieRating movieRating)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetCountOfMovieReviews(int movie)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetReviewsByReviewer(int reviewer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetCountOfMovieByGrade(int movie, int grade)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetCountOfGradesByReviewer(int reviewer, int grade)
+        {
+            throw new NotImplementedException();
+        }
+
         public double AverageRatingByReviewer(int reviewer)
         {
             throw new NotImplementedException();
@@ -22,48 +46,27 @@ namespace MovieRatings.Infrastructure.Data
             throw new NotImplementedException();
         }
 
-        public int GetCountOfGrades(int reviewer, int grade)
+        public IEnumerable<int> GetTopGradedMovies()
         {
             throw new NotImplementedException();
         }
 
-        public int GetCountOfMovieReviews(int movie)
+        public IEnumerable<int> GetTopReviewers()
         {
             throw new NotImplementedException();
         }
 
-        public int GetMovieReviewsByGrade(int movie, int grade)
+        public IEnumerable<int> GetTopMovies(int number)
         {
             throw new NotImplementedException();
         }
 
-        public List<MovieRating> GetMoviesByReviewer(int reviewer)
+        public IEnumerable<MovieRating> GetMoviesByReviewer(int reviewer)
         {
             throw new NotImplementedException();
         }
 
-        public List<MovieRating> GetReviewersByMovie(int movie)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetReviewsByReviewer(int reviewer)
-        {
-            int count = 0;
-            return count;
-        }
-
-        public int GetTopGradedMovies()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<MovieRating> GetTopMovies(int number)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetTopReviewer()
+        public IEnumerable<MovieRating> GetReviewersByMovie(int movie)
         {
             throw new NotImplementedException();
         }

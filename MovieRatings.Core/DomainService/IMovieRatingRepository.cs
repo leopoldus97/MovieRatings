@@ -1,7 +1,5 @@
 ﻿using MovieRatings.Core.Entity;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MovieRatings.Core.DomainService
 {
@@ -9,14 +7,14 @@ namespace MovieRatings.Core.DomainService
     {
         int GetReviewsByReviewer(int reviewer);
         double AverageRatingByReviewer(int reviewer);
-        int GetCountOfGrades(int reviewer, int grade);
+        int GetCountOfGradesByReviewer(int reviewer, int grade);
         int GetCountOfMovieReviews(int movie);
         double AverageRatingOnMovie(int movie);
-        int GetMovieReviewsByGrade(int movie, int grade);
-        int GetTopGradedMovies();
-        int GetTopReviewer();
-        List<MovieRating> GetTopMovies(int number);
-        List<MovieRating> GetMoviesByReviewer(int reviewer);
-        List<MovieRating> GetReviewersByMovie(int movie);
+        int GetCountOfMovieByGrade(int movie, int grade);
+        IEnumerable<int> GetTopGradedMovies();
+        IEnumerable<int> GetTopReviewers();
+        IEnumerable<int> GetTopMovies(int number);
+        IEnumerable<MovieRating> GetMoviesByReviewer(int reviewer);
+        IEnumerable<MovieRating> GetReviewersByMovie(int movie);
     }
 }
