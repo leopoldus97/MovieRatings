@@ -11,9 +11,9 @@ namespace MovieRatings.Core.ApplicationService
         int GetCountOfMovieReviews(int movie);
         double AverageRatingOnMovie(int movie);
         int GetCountOfMovieByGrade(int movie, int grade);
-        int GetTopGradedMovies();
-        int GetTopReviewer();
-        List<MovieRating> GetTopMovies(int number);
+        List<int> GetTopGradedMovies();
+        List<int> GetTopReviewers();
+        List<int> GetTopMovies(int number);
         List<MovieRating> GetMoviesByReviewer(int reviewer);
         List<MovieRating> GetReviewersByMovie(int movie);
     }
