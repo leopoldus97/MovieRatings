@@ -215,7 +215,7 @@ namespace MovieRatings.Tests
         }
 
         [Fact]
-        public void GetTopGradedMovies_Valid_ReturnsTop5GradedMovies()
+        public void GetTopGradedMovies_Valid_ReturnsTopGradedMovies()
         {
             FakeMovieRatingRepository movieRatingRepository = new FakeMovieRatingRepository();
             movieRatingRepository.Add(new MovieRating(1, 6, 5, DateTime.Now));
@@ -228,7 +228,7 @@ namespace MovieRatings.Tests
             movieRatingRepository.Add(new MovieRating(1, 1, 1, DateTime.Now));
             IMovieRatingService movieRatingService = new MovieRatingService(movieRatingRepository);
 
-            List<int> expected = new List<int>() { 6, 5, 4, 3, 2 };
+            List<int> expected = new List<int>() { 6, 5, 4, 3, 2, 1 };
             List<int> actual = movieRatingService.GetTopGradedMovies();
 
             Assert.Equal(expected, actual);

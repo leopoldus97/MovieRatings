@@ -47,7 +47,7 @@ namespace MovieRatings.Infrastructure.Data
 
         public IEnumerable<int> GetTopGradedMovies()
         {
-            return _movieRatings.OrderByDescending(mr => mr.Grade).Select(mr => mr.Movie).Distinct().Take(5);
+            return _movieRatings.OrderByDescending(mr => mr.Grade).Select(mr => mr.Movie).Distinct();
         }    
 
         public IEnumerable<int> GetTopReviewers()
