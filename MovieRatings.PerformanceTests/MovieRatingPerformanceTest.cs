@@ -23,7 +23,7 @@ namespace MovieRatings.PerformanceTests
 			_movieRatingFixture.MovieRatingService.GetCountOfReviewsByReviewer(1);
 			stopwatch.Stop();
 
-			Assert.True(stopwatch.Elapsed.TotalSeconds < 4);
+			Assert.True(stopwatch.ElapsedMilliseconds / 1000.0 < 4);
 		}
 
 		[Fact]
@@ -35,7 +35,7 @@ namespace MovieRatings.PerformanceTests
 			_movieRatingFixture.MovieRatingService.AverageRatingByReviewer(1);
 			stopwatch.Stop();
 
-			Assert.True(stopwatch.Elapsed.TotalSeconds < 4);
+			Assert.True(stopwatch.ElapsedMilliseconds / 1000.0 < 4);
 		}
 
 		[Fact]
@@ -47,9 +47,9 @@ namespace MovieRatings.PerformanceTests
 			_movieRatingFixture.MovieRatingService.GetCountOfGradesByReviewer(1, 1);
 			stopwatch.Stop();
 
-			Assert.True(stopwatch.Elapsed.TotalSeconds < 4);
+			Assert.True(stopwatch.ElapsedMilliseconds / 1000.0 < 4);
 		}
-		
+
 		[Fact]
 		public void GetCountOfMovieReviews_LessThanFourSeconds()
 		{
@@ -59,7 +59,7 @@ namespace MovieRatings.PerformanceTests
 			_movieRatingFixture.MovieRatingService.GetCountOfMovieReviews(1);
 			stopwatch.Stop();
 
-			Assert.True(stopwatch.Elapsed.TotalSeconds < 4);
+			Assert.True(stopwatch.ElapsedMilliseconds / 1000.0 < 4);
 		}
 
 		[Fact]
@@ -71,7 +71,7 @@ namespace MovieRatings.PerformanceTests
 			_movieRatingFixture.MovieRatingService.AverageRatingOnMovie(1);
 			stopwatch.Stop();
 
-			Assert.True(stopwatch.Elapsed.TotalSeconds < 4);
+			Assert.True(stopwatch.ElapsedMilliseconds / 1000.0 < 4);
 		}
 
 		[Fact]
@@ -83,7 +83,7 @@ namespace MovieRatings.PerformanceTests
 			_movieRatingFixture.MovieRatingService.GetCountOfMovieByGrade(1, 1);
 			stopwatch.Stop();
 
-			Assert.True(stopwatch.Elapsed.TotalSeconds < 4);
+			Assert.True(stopwatch.ElapsedMilliseconds / 1000.0 < 4);
 		}
 
 		[Fact]
@@ -95,7 +95,7 @@ namespace MovieRatings.PerformanceTests
 			_movieRatingFixture.MovieRatingService.GetTopGradedMovies();
 			stopwatch.Stop();
 
-			Assert.True(stopwatch.Elapsed.TotalSeconds < 4);
+			Assert.True(stopwatch.ElapsedMilliseconds / 1000.0 < 4);
 		}
 
 		[Fact]
@@ -107,7 +107,7 @@ namespace MovieRatings.PerformanceTests
 			_movieRatingFixture.MovieRatingService.GetTopReviewers();
 			stopwatch.Stop();
 
-			Assert.True(stopwatch.Elapsed.TotalSeconds < 4);
+			Assert.True(stopwatch.ElapsedMilliseconds / 1000.0 < 4);
 		}
 
 		[Fact]
@@ -119,7 +119,7 @@ namespace MovieRatings.PerformanceTests
 			_movieRatingFixture.MovieRatingService.GetTopMovies(1);
 			stopwatch.Stop();
 
-			Assert.True(stopwatch.Elapsed.TotalSeconds < 4);
+			Assert.True(stopwatch.ElapsedMilliseconds / 1000.0 < 4);
 		}
 
 		[Fact]
@@ -131,7 +131,7 @@ namespace MovieRatings.PerformanceTests
 			_movieRatingFixture.MovieRatingService.GetMoviesByReviewer(1);
 			stopwatch.Stop();
 
-			Assert.True(stopwatch.Elapsed.TotalSeconds < 4);
+			Assert.True(stopwatch.ElapsedMilliseconds / 1000.0 < 4);
 		}
 
 		[Fact]
@@ -143,7 +143,7 @@ namespace MovieRatings.PerformanceTests
 			_movieRatingFixture.MovieRatingService.GetReviewersByMovie(1);
 			stopwatch.Stop();
 
-			Assert.True(stopwatch.Elapsed.TotalSeconds < 4);
+			Assert.True(stopwatch.ElapsedMilliseconds / 1000.0 < 4);
 		}
 	}
 }
