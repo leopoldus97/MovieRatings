@@ -79,7 +79,7 @@ namespace MovieRatings.Tests
         [Theory]
         [InlineData(1, 1, 1)]
         [InlineData(2, 3, 3)]
-        public void GetCountOfGradesByReviewer_TwoValidNumbers_ReturnsAmountOfGradesOfReviewer(int reviewer, int grade, int count)
+        public void GetCountOfGradesByReviewer_TwoValidNumbers_ReturnsAmountOfGradesOfReviewers(int reviewer, int grade, int count)
         {
             FakeMovieRatingRepository movieRatingRepository = new FakeMovieRatingRepository();
             movieRatingRepository.Add(new MovieRating(1, 3, grade, DateTime.Now));
