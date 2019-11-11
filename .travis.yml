@@ -5,4 +5,4 @@ solution: MovieRatings.sln
 script:
   - dotnet restore
   - dotnet build
-  - dotnet MovieRatings/MovieRatings.Tests/bin/Debug/netcoreapp3.0/MovieRatings.Tests.dll
+  - dotnet test MovieRatings/MovieRatings.Tests/MovieRatings.Tests.csproj
